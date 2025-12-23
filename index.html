@@ -18,7 +18,9 @@
         }
 
         * { box-sizing: border-box; }
-
+        
+<script> if ("serviceWorker" in navigator) { navigator.serviceWorker.register("service-worker.js"); } </script>
+                                            
         body {
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -505,3 +507,4 @@ sous 24 à 72 heures.</p>
 
 </body>
 </html>
+
