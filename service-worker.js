@@ -1,1 +1,1 @@
-self.addEventListener("install", () => { self.skipWaiting(); }); self.addEventListener("activate", () => { clients.claim(); });
+self.addEventListener("install", (event) => { console.log("Service worker installed"); }); self.addEventListener("activate", (event) => { console.log("Service worker activated"); }); self.addEventListener("fetch", (event) => { // Répond avec la requête originale (pas de cache ici) event.respondWith(fetch(event.request)); });
