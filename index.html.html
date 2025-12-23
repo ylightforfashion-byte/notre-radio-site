@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Notre Radio Thématique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Radio en ligne avec thématiques musicales, accès gratuit et offre premium.">
+    <style>
+        :root {
+            --bg: #020617;
+            --bg-alt: #0b1120;
+            --accent: #fbbf24;
+            --accent-soft: rgba(251, 191, 36, 0.18);
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --card: #020617;
+            --border: rgba(148, 163, 184, 0.3);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+            color: var(--text);
+        }
+
+        header {
+            padding: 1.3rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .logo {
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        header nav a {
+            margin-left: 1.4rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        header nav a:hover { color: var(--accent); }
+
+        main {
+            padding: 2rem 8% 3.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 2.2rem;
+            align-items: center;
+            padding: 2.2rem 0 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.1rem, 3.4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span { color: var(--accent); }
+
+        .hero-subtitle {
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 35rem;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero-tag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+        }
+
+        .hero-actions {
+            margin-top: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.65rem 1.35rem;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.2s, border-color 0.2s, transform 0.1s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #facc15, #f97316);
+            color: #111827;
+            border-color: transparent;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent);
+        }
+
+        .player-card {
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.5rem 1.1rem;
+            background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.95);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .player-title {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .live-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.15rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.15);
+            color: #bbf7d0;
+            font-size: 0.75rem;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #22c55e;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 0.4rem;
+        }
+
+        .track-info {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        section { margin-top: 3.2rem; }
+
+        section h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+        }
+
+        section p.lead {
+            color: var(--muted);
+            font-size: 0.9rem;
+            max-width: 36rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.3rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            padding: 1rem 1.1rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1rem;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.15);
+            color: var(--muted);
+        }
+
+        .badge-free { background: rgba(34, 197, 94, 0.18); color: #bbf7d0; }
+        .badge-premium { background: var(--accent-soft); color: #fef9c3; }
+
+        .pricing {
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .pricing-highlight {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 1.4rem;
+            border: 1px solid var(--accent-soft);
+            padding: 1.3rem 1.4rem;
+        }
+
+        .pricing-tag {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--muted);
+        }
+
+        .pricing-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.3rem 0 0.1rem;
+        }
+
+        .pricing-details {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 0.9rem;
+        }
+
+        ul {
+            padding-left: 1.1rem;
+            margin: 0.3rem 0 0.8rem;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .contact-block {
+            background: linear-gradient(135deg, #facc15, #f97316);
+            color: #111827;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.5rem;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 1.2rem;
+        }
+
+        .contact-block h2 {
+            margin: 0 0 0.4rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-block p {
+            margin: 0.25rem 0;
+            font-size: 0.92rem;
+        }
+
+        .contact-items {
+            font-size: 0.9rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 1.6rem 8% 1.3rem;
+            border-top: 1px solid rgba(55, 65, 81, 0.7);
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 800px) {
+            header { padding-inline: 1.2rem; }
+            main { padding-inline: 1.2rem; }
+
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .contact-block {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            header nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">NOTRE RADIO THÉMATIQUE</div>
+    <nav>
+        <a href="#radio">Radio en direct</a>
+        <a href="#themes">Thématiques</a>
+        <a href="#premium">Premium</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section id="radio" class="hero">
+        <div>
+            <div class="hero-tag">
+                <span class="hero-tag-dot"></span>
+                Radio en direct • Accès immédiat
+            </div>
+            <h1 class="hero-title">
+                Une radio par <span>thématiques</span>,<br>
+                du gratuit et un premium simple.
+            </h1>
+            <p class="hero-subtitle">
+                Nous proposons une radio en direct accessible gratuitement, avec des thématiques musicales variées.
+                Pour aller plus loin, notre offre premium à 5&nbsp;€/mois débloque davantage de contenus.
+            </p>
+            <div class="hero-actions">
+                <a href="#radio-player" class="btn btn-primary">Écouter la radio en direct</a>
+                <a href="#premium" class="btn btn-outline">Voir l’offre premium</a>
+            </div>
+        </div>
+
+        <aside class="player-card" id="radio-player">
+            <div class="player-header">
+                <div>
+                    <div class="player-title">Lecture en direct</div>
+                    <strong>Notre Radio Thématique</strong>
+                </div>
+                <div class="live-pill">
+                    <span class="live-dot"></span>
+                    En direct
+                </div>
+            </div>
+
+            <!-- Remplace ICI l'URL du flux audio par celle de ton hébergeur radio -->
+            <audio controls>
+                <source src="https://votre-flux-radio-ici.example/stream" type="audio/mpeg">
+                Votre navigateur ne supporte pas le lecteur audio.
+            </audio>
+
+            <div class="track-info">
+                Thématique actuelle : Sélection générale (accès gratuit).<br>
+                Pour des thématiques supplémentaires, découvrez notre offre premium.
+            </div>
+        </aside>
+    </section>
+
+    <section id="themes">
+        <h2>Thématiques disponibles</h2>
+        <p class="lead">
+            Certaines thématiques sont accessibles gratuitement. D’autres sont réservées aux abonnés premium.
+            Vous pouvez commencer gratuitement, puis débloquer davantage de contenus si vous le souhaitez.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <span class="badge badge-free">Gratuit</span>
+                <h3>Mix général</h3>
+                <p>
+                    Un flux continu qui mélange plusieurs ambiances pour découvrir l’univers de notre radio.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="badge badge-free">Gratuit</span>
+                <h3>Thématique découverte</h3>
+                <p>
+                    Une sélection d’extraits pour présenter notre approche thématique.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="badge badge-premium">Premium</span>
+                <h3>Thématiques avancées</h3>
+                <p>
+                    Des playlists plus ciblées (périodes, styles, ambiances…) accessibles via l’abonnement premium.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="badge badge-premium">Premium</span>
+                <h3>Contenus bonus</h3>
+                <p>
+                    Accès à davantage de blocs thématiques, contenus exclusifs et évolutions réservées aux abonnés.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="premium">
+        <h2>Offre premium</h2>
+        <p class="lead">
+            Notre abonnement premium vous permet de soutenir notre projet tout en débloquant davantage de thématiques.
+        </p>
+
+        <div class="pricing">
+            <div>
+                <p class="pricing-tag">Abonnement simple et transparent</p>
+                <p class="pricing-price">5&nbsp;€/mois</p>
+                <p class="pricing-details">
+                    Sans engagement complexe. Vous pouvez arrêter à tout moment depuis la plateforme de paiement.
+                </p>
+                <ul>
+                    <li>Accès à plus de thématiques musicales.</li>
+                    <li>Nouveautés et évolutions en priorité.</li>
+                    <li>Un moyen concret de soutenir notre radio.</li>
+                </ul>
+                <!-- Remplace le # par le lien de ta page d'abonnement -->
+                <a href="#" class="btn btn-primary">S’abonner au premium</a>
+            </div>
+
+            <div class="pricing-highlight">
+                <strong>Important&nbsp;:</strong>
+                <p class="pricing-details">
+                    Techniquement, ce site ne gère pas directement les comptes ni les paiements.
+                    L’abonnement est géré par une plateforme externe (Stripe, Patreon…).
+                    Après inscription, vous recevrez les informations d’accès aux contenus premium.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-block">
+            <div>
+                <h2>Contact & informations</h2>
+                <p>
+                    Une question sur la radio, les thématiques ou l’abonnement premium&nbsp;?
+                    Vous pouvez nous écrire à tout moment.
+                </p>
+            </div>
+            <div class="contact-items">
+                <p><span class="contact-label">Email :</span> <a href="mailto:contact@exemple.com">contact@exemple.com</a></p>
+                <p><span class="contact-label">Ville :</span> La Seyne-sur-Mer, France</p>
+                <p><span class="contact-label">Réponse :</span> généralement
+sous 24 à 72 heures.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © <span id="year"></span> Notre Radio Thématique — Accès gratuit & offre premium simple.
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
