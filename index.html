@@ -348,8 +348,6 @@
 <body>
 <header>
     <div class="logo">NOTRE RADIO THÉMATIQUE</div>
-    <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin-top:20px;">
-        </button> <script> let deferredPrompt; const installBtn = document.getElementById("installBtn"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; installBtn.style.display = "inline-block"; }); installBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === "accepted") { console.log("L'installation a été acceptée"); } else { console.log("L'installation a été refusée"); } deferredPrompt = null; }); } }); </script>
     <nav>
         <a href="#radio">Radio en direct</a>
         <a href="#themes">Thématiques</a>
@@ -509,9 +507,11 @@ sous 24 à 72 heures.</p>
 </script>
 
   <script> if ("serviceWorker" in navigator) { navigator.serviceWorker.register("service-worker.js"); } </script>
-    
+
+    <!-- Bouton d'installation PWA --> <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin:20px auto; display:block;"> 📲 Installer l'application </button> <script> let deferredPrompt; const installBtn = document.getElementById("installBtn"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; installBtn.style.display = "block"; }); installBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === "accepted") { console.log("L'installation a été acceptée"); } else { console.log("L'installation a été refusée"); } deferredPrompt = null; }); } }); </script>
 </body>
 </html>
+
 
 
 
