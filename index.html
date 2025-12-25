@@ -502,6 +502,7 @@ sous 24 à 72 heures.</p>
             </div>
         </div>
     </section>
+    
     <section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil Android :</p> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> </section>
 
 </main>
@@ -510,10 +511,6 @@ sous 24 à 72 heures.</p>
     © <span id="year"></span> Notre Radio Thématique — Accès gratuit & offre premium simple.
 </footer>
 
-<script>
-    document.<p style="color:red; font-size:30px;">TEST BOUTON</p> <a href="World%20Radio-unsigned.apk">Télécharger</a>getElementById("year").textContent = new Date().getFullYear();
-</script>
-
   <script> if ("serviceWorker" in navigator) { navigator.serviceWorker.register("service-worker.js"); } </script>
 
  <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>      
@@ -521,6 +518,7 @@ sous 24 à 72 heures.</p>
 </body>
 
 </html>
+
 
 
 
