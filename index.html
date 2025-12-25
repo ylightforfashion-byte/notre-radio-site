@@ -22,6 +22,7 @@
         * { box-sizing: border-box; }
                                             
         body {
+         <div id="installBanner" style="display:none;"> <p>📲 Installez notre application pour une écoute fluide et rapide !</p> <button id="installBtnBanner">Installer</button> </div>   
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
@@ -516,8 +517,8 @@ sous 24 à 72 heures.</p>
  <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>   
 
 </body>
-    <div id="installBanner" style="display:none;"> <p>📲 Installez notre application pour une écoute fluide et rapide !</p> <button id="installBtnBanner">Installer</button> </div>
 </html>
+
 
 
 
