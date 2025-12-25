@@ -358,7 +358,6 @@
         <a href="#themes">Thématiques</a>
         <a href="#premium">Premium</a>
         <a href="#contact">Contact</a>
-<section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil Android :</p> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> </section>
         <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'app Android </a>
     </nav>
 </header>
@@ -521,9 +520,12 @@ sous 24 à 72 heures.</p>
 
  <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>      
 
+<section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil Android :</p> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> </section>
+    
 </body>
 
 </html>
+
 
 
 
