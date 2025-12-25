@@ -362,7 +362,6 @@
 </header>
 
 <main>
-<section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil Android :</p> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> </section>
     <section id="radio" class="hero">
         <div>
             <div class="hero-tag">
@@ -410,7 +409,6 @@
         </aside>
     </section>
 
-<div class="install-section"> <button id="installBtn"> 📲 Installer l'application </button> </div>
     
     <section id="themes">
         <h2>Thématiques disponibles</h2>
@@ -517,6 +515,7 @@ sous 24 à 72 heures.</p>
   <script> if ("serviceWorker" in navigator) { navigator.serviceWorker.register("service-worker.js"); } </script>
 
     <!-- Bouton d'installation PWA --> <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin:20px auto; display:block;"> 📲 Installer l'application </button> <script> let deferredPrompt; const installBtn = document.getElementById("installBtn"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; installBtn.style.display = "block"; }); installBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === "accepted") { console.log("L'installation a été acceptée"); } else { console.log("L'installation a été refusée"); } deferredPrompt = null; }); } }); </script>
+<section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil Android :</p> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> </section>
 
  <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>      
 
@@ -524,6 +523,7 @@ sous 24 à 72 heures.</p>
 </body>
 
 </html>
+
 
 
 
