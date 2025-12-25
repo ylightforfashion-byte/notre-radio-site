@@ -17,8 +17,7 @@
             --card: #020617;
             --border: rgba(148, 163, 184, 0.3);
         }
-<style> /* ... ton style existant ... */ /* Style du bouton d'installation PWA */ #installBtn { background: #ff3366; color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 18px; font-weight: bold; cursor: pointer; display: none; margin: 30px auto; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background 0.2s ease; } #installBtn:hover { background: #ff1f55; transform: scale(1.05); }.install-section { text-align: center; margin-top: 30px; } #installBanner { background: var(--accent); color: var(--bg); padding: 15px; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; } #installBanner button { background: var(--bg); color: var(--accent); border: none; padding: 10px 16px; margin-left: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s ease; } #installBanner button:hover { background: #1f2937; }</style>
-        
+ <style> /* === Bouton d'installation PWA (sous le lecteur) === */ #installBtn { background: #ff3366; color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 18px; font-weight: bold; cursor: pointer; display: none; margin: 30px auto; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background 0.2s ease; } #installBtn:hover { background: #ff1f55; transform: scale(1.05); } .install-section { text-align: center; margin-top: 30px; } /* === Bannière d'installation PWA (haut de page) === */ #installBanner { background: var(--accent); color: var(--bg); padding: 15px; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; } #installBanner button { background: var(--bg); color: var(--accent); border: none; padding: 10px 16px; margin-left: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s ease; } #installBanner button:hover { background: #1f2937; } </style>       
         * { box-sizing: border-box; }
                                             
         body {
@@ -518,6 +517,7 @@ sous 24 à 72 heures.</p>
 
 </body>
 </html>
+
 
 
 
