@@ -17,7 +17,7 @@
             --card: #020617;
             --border: rgba(148, 163, 184, 0.3);
         }
-<style> /* ... ton style existant ... */ /* Style du bouton d'installation PWA */ #installBtn { background: #ff3366; color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 18px; font-weight: bold; cursor: pointer; display: none; margin: 30px auto; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background 0.2s ease; } #installBtn:hover { background: #ff1f55; transform: scale(1.05); } </style>
+<style> /* ... ton style existant ... */ /* Style du bouton d'installation PWA */ #installBtn { background: #ff3366; color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 18px; font-weight: bold; cursor: pointer; display: none; margin: 30px auto; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background 0.2s ease; } #installBtn:hover { background: #ff1f55; transform: scale(1.05); }.install-section { text-align: center; margin-top: 30px; } #installBanner { background: var(--accent); color: var(--bg); padding: 15px; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; } #installBanner button { background: var(--bg); color: var(--accent); border: none; padding: 10px 16px; margin-left: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s ease; } #installBanner button:hover { background: #1f2937; }</style>
         
         * { box-sizing: border-box; }
                                             
@@ -405,6 +405,8 @@
         </aside>
     </section>
 
+<div class="install-section"> <button id="installBtn"> 📲 Installer l'application </button> </div>
+    
     <section id="themes">
         <h2>Thématiques disponibles</h2>
         <p class="lead">
@@ -510,8 +512,13 @@ sous 24 à 72 heures.</p>
   <script> if ("serviceWorker" in navigator) { navigator.serviceWorker.register("service-worker.js"); } </script>
 
     <!-- Bouton d'installation PWA --> <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin:20px auto; display:block;"> 📲 Installer l'application </button> <script> let deferredPrompt; const installBtn = document.getElementById("installBtn"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; installBtn.style.display = "block"; }); installBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === "accepted") { console.log("L'installation a été acceptée"); } else { console.log("L'installation a été refusée"); } deferredPrompt = null; }); } }); </script>
+
+ <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>   
+
 </body>
+    <div id="installBanner" style="display:none;"> <p>📲 Installez notre application pour une écoute fluide et rapide !</p> <button id="installBtnBanner">Installer</button> </div>
 </html>
+
 
 
 
