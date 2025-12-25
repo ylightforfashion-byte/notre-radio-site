@@ -519,12 +519,12 @@ sous 24 à 72 heures.</p>
 
     <!-- Bouton d'installation PWA --> <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin:20px auto; display:block;"> 📲 Installer l'application </button> <script> let deferredPrompt; const installBtn = document.getElementById("installBtn"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; installBtn.style.display = "block"; }); installBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === "accepted") { console.log("L'installation a été acceptée"); } else { console.log("L'installation a été refusée"); } deferredPrompt = null; }); } }); </script>
 
- <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>   
+ <script> let deferredPrompt; const banner = document.getElementById("installBanner"); const bannerBtn = document.getElementById("installBtnBanner"); window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredPrompt = e; banner.style.display = "block"; }); bannerBtn.addEventListener("click", () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; banner.style.display = "none"; }); } }); </script>      
 
-<p style="color:red; font-size:30px;">TEST BOUTON</p> <a href="World%20Radio-unsigned.apk">Télécharger</a>
-    
 </body>
+
 </html>
+
 
 
 
