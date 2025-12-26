@@ -4,26 +4,23 @@
   <meta charset="UTF-8">
   <title>Notre Radio Thématique</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Radio en ligne avec thématiques musicales, accès gratuit et offre premium.">
   <link rel="manifest" href="manifest.json">
-
   <style>
     :root {
       --bg: #020617;
       --accent: #fbbf24;
+      --accent-soft: rgba(251, 191, 36, 0.18);
       --text: #f9fafb;
       --muted: #9ca3af;
       --border: rgba(148, 163, 184, 0.3);
     }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
       background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
       color: var(--text);
     }
-
     header {
       padding: 1.3rem 8%;
       display: flex;
@@ -36,7 +33,6 @@
       background: rgba(15, 23, 42, 0.9);
       border-bottom: 1px solid var(--border);
     }
-
     .logo {
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -44,123 +40,281 @@
       font-size: 0.9rem;
       color: var(--muted);
     }
-
-    header nav a {
+    nav a {
       margin-left: 1.4rem;
       text-decoration: none;
       font-size: 0.9rem;
       color: var(--muted);
     }
-
-    header nav a:hover { color: var(--accent); }
-
+    nav a:hover { color: var(--accent); }
     main {
       padding: 2rem 8%;
       max-width: 1100px;
       margin: 0 auto;
     }
-
-    .apk-btn, .premium-btn {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background 0.2s ease;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
     }
-
-    .apk-btn:hover, .premium-btn:hover {
-      background: #f59e0b;
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
     }
-
-    footer {
-      padding: 1.6rem 8%;
-      border-top: 1px solid rgba(55, 65, 81, 0.7);
-      font-size: 0.8rem;
+    .hero-title {
+      font-size: clamp(2.1rem, 3.4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero-title span { color: var(--accent); }
+    .hero-subtitle {
       color: var(--muted);
-      text-align: center;
-      margin-top: 3rem;
+      font-size: 0.98em;
+      line-height: 1.6;
+      max-width: 35rem;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.65rem 1.35rem;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+      border-color: transparent;
+      font-weight: 600;
+    }
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .player-card {
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.95);
+      margin-top: 2rem;
+    }
+    .player-title {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .track-info {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
   </style>
 </head>
-
 <body>
-
   <header>
     <div class="logo">NOTRE RADIO THÉMATIQUE</div>
     <nav>
-      <a href="#live">Radio en direct</a>
+      <a href="#radio">Radio</a>
       <a href="#themes">Thématiques</a>
       <a href="#premium">Premium</a>
       <a href="#contact">Contact</a>
-      <a href="#download" class="apk-btn">📱 Android</a>
+      <a href="#download" class="btn btn-primary">📱 Android</a>
     </nav>
   </header>
-
   <main>
-
-    <!-- SECTION RADIO EN DIRECT -->
-    <section id="live" style="padding:40px 20px; text-align:center;">
-      <h2>🎧 Radio en direct • Accès immédiat</h2>
-      <p>Une radio par thématiques, du gratuit et un premium simple.</p>
-      <p>Nous proposons une radio en direct accessible gratuitement, avec des thématiques musicales variées. Pour aller plus loin, notre offre premium à 5 €/mois débloque davantage de contenus.</p>
-      <p><strong>Thématique actuelle :</strong> sélection générale. Pour plus de thématiques disponibles et de contenus, vous pouvez opter pour notre offre premium.</p>
-
-      <!-- Lecteur radio (à remplacer quand tu auras ton lien) -->
-      <iframe src="" style="width:100%; height:200px; border:none;"></iframe>
+    <section id="radio">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Radio en direct + Accès immédiat
+      </div>
+      <h1 class="hero-title">
+        Une radio par <span>thématiques</span>,<br>du gratuit et un premium simple.
+      </h1>
+      <p class="hero-subtitle">
+        Nous proposons une radio en direct accessible gratuitement, avec des thématiques musicales variées.<br>
+        Pour aller plus loin, notre offre premium à 5 €/mois débloque davantage de contenus.
+      </p>
+      <div class="hero-actions">
+        <a href="#radio-player" class="btn btn-primary">Écouter la radio en direct</a>
+        <a href="#premium" class="btn btn-outline">Voir l'offre premium</a>
+      </div>
     </section>
+    <aside class="player-card" id="radio-player">
+      <div class="player-title">Lecture en direct</div>
+      <audio controls>
+        <source src="https://secast.audiofse.fr/fip-midi.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas le lecteur audio.
+      </audio>
+      <div class="track-info">
+        Thématique actuelle : Sélection générale (accès gratuit).<br>
+        Pour des thématiques supplémentaires, découvrez notre offre premium.
+      </div>
+    </aside>
+ <!-- SECTION THÉMATIQUES -->
+    <section id="themes">
+      <h2>Thématiques disponibles</h2>
+      <p class="lead">
+        Certaines thématiques sont accessibles gratuitement. D'autres sont réservées aux abonnés premium.
+        Vous pouvez commencer gratuitement, puis débloquer davantage de contenus si vous le souhaitez.
+      </p>
 
-    <!-- SECTION THÉMATIQUES -->
-    <section id="themes" style="padding:40px 20px;">
-      <h2>🎶 Thématiques disponibles</h2>
-      <p>Certaines thématiques sont accessibles gratuitement. D'autres sont réservées aux abonnés premium.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="badge free">Gratuit</span>
+          <h3>Mix général</h3>
+          <p>Un flux continu qui mélange plusieurs ambiances pour découvrir l’univers de notre radio.</p>
+        </article>
 
-      <h3>Gratuit</h3>
-      <ul>
-        <li><strong>Mix général</strong> — Des playlists claires, qui mélangent plusieurs courants sur une place commune.</li>
-        <li><strong>Thématique découverte</strong> — Une sélection d'artistes pour initier progressivement notre approche thématique.</li>
-      </ul>
+        <article class="card">
+          <span class="badge free">Gratuit</span>
+          <h3>Thématique découverte</h3>
+          <p>Une sélection d’extraits pour présenter notre approche thématique.</p>
+        </article>
 
-      <h3>Premium</h3>
-      <ul>
-        <li><strong>Thématiques avancées</strong> — Des playlists ciblées (par époque, style, ambiance...), accessibles par abonnement premium.</li>
-        <li><strong>Contenus bonus</strong> — Accès à davantage de blocs thématiques, d'archives exclusives, et autres contenus réservés aux abonnés.</li>
-      </ul>
+        <article class="card">
+          <span class="badge badge-premium">Premium</span>
+          <h3>Thématiques avancées</h3>
+          <p>Des playlists plus ciblées (périodes, styles, ambiances…) accessibles via l’abonnement premium.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-premium">Premium</span>
+          <h3>Contenus bonus</h3>
+          <p>Accès à davantage de blocs thématiques, contenus exclusifs et évolutions réservées aux abonnés.</p>
+        </article>
+      </div>
     </section>
 
     <!-- SECTION PREMIUM -->
-    <section id="premium" style="padding:40px 20px; text-align:center;">
-      <h2>⭐ Offre Premium</h2>
-      <p>Notre abonnement premium vous permet de soutenir notre projet tout en débloquant davantage de thématiques et de contenus.</p>
-      <a href="https://ton-lien-de-paiement.com" class="premium-btn">⭐ Devenir membre Premium</a>
+    <section id="premium">
+      <h2>Offre premium</h2>
+      <p class="lead">
+        Notre abonnement premium vous permet de soutenir notre projet tout en débloquant davantage de thématiques.
+      </p>
+
+      <div class="pricing">
+        <div>
+          <p class="pricing-tag">Abonnement simple et transparent</p>
+          <p class="pricing-price">5 € / mois</p>
+          <p class="pricing-details">
+            Sans engagement complexe. Vous pouvez arrêter à tout moment depuis la plateforme de paiement.
+          </p>
+          <ul>
+            <li>Accès à plus de thématiques musicales.</li>
+            <li>Nouveautés et évolutions en priorité.</li>
+            <li>Un moyen concret de soutenir notre radio.</li>
+          </ul>
+
+          <!-- Remplace # par ton lien Stripe / PayPal -->
+          <a href="#" class="btn btn-primary">S’abonner au premium</a>
+        </div>
+
+        <div class="pricing-highlight">
+          <strong>Important :</strong>
+          <p class="pricing-details">
+            Techniquement, ce site ne gère pas directement les comptes ni les paiements.
+            L’abonnement est géré par une plateforme externe (Stripe, Patreon…).
+            Après inscription, vous recevrez les informations d’accès aux contenus premium.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- SECTION INSTALLATION -->
-    <section id="download" style="padding:40px 20px; text-align:center;">
+    <section id="download" style="text-align:center; margin-top:3rem;">
       <h2>📥 Télécharger l'application</h2>
-      <p>Installez Notre Radio Thématique sur votre appareil Android :</p>
+      <p>Installez Notre Radio Thématique sur votre appareil pour une meilleure expérience.</p>
 
-      <a href="World%20Radio-unsigned.apk" class="apk-btn" download>
-        📱 Installer l'application Android (.apk)
+      <a href="World%20Radio-unsigned.apk" class="btn btn-primary">
+        📲 Télécharger l'application Android (.apk)
       </a>
 
       <div style="margin-top:30px;">
         <h3>📱 Installer sur iPhone</h3>
         <p style="max-width:500px; margin:10px auto;">
-          Sur iPhone, ouvrez Safari → Partager → Ajouter à l’écran d’accueil.
+          Sur iPhone, l'installation se fait via Safari :<br><br>
+          1. Ouvrez Safari<br>
+          2. Allez sur notre site<br>
+          3. Appuyez sur <strong>Partager</strong><br>
+          4. Choisissez <strong>Ajouter à l'écran d'accueil</strong>
         </p>
+      </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact">
+      <div class="contact-block">
+        <h2>Contact & informations</h2>
+        <p>
+          Une question sur la radio, les thématiques ou l’abonnement premium ?
+          Vous pouvez nous écrire à tout moment.
+        </p>
+
+        <div class="contact-items">
+          <p><span class="contact-label">Email :</span> <a href="mailto:contact@exemple.com">contact@exemple.com</a></p>
+          <p><span class="contact-label">Ville :</span> La Seyne-sur-Mer, France</p>
+          <p><span class="contact-label">Réponse :</span> généralement sous 24 à 72 heures.</p>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer>
-    © 2025 Notre Radio Thématique — Tous droits réservés.
+    © <span id="year"></span> Notre Radio Thématique — Accès gratuit & offre premium simple.
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+  <!-- Bouton d’installation PWA -->
+  <button id="installBtn" style="display:none; padding:10px 20px; font-size:16px; margin:20px auto; display:block;">
+    📲 Installer l’application
+  </button>
+
+  <script>
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "block";
+    });
+
+    installBtn.addEventListener("click", () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => {
+          deferredPrompt = null;
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
