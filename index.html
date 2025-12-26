@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8">
-    <title>Notre Radio Thématique</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <title>Notre Radio Thématique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
 
-    <style>
-        :root {
-            --bg: #020617;
-            --accent: #fbbf24;
-            --text: #f9fafb;
-            --muted: #9ca3af;
-            --border: rgba(148, 163, 184, 0.3);
-         }
+  <style>
+    :root {
+      --bg: #020617;
+      --accent: #fbbf24;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.3);
+    }
 
-     * { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-     body {
-        margin: 0;
+    body {
+      margin: 0;
       font-family: system-ui, sans-serif;
       background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
       color: var(--text);
@@ -60,7 +60,7 @@
       margin: 0 auto;
     }
 
-    .apk-btn {
+    .apk-btn, .premium-btn {
       background: var(--accent);
       color: var(--bg);
       padding: 12px 20px;
@@ -73,11 +73,11 @@
       transition: background 0.2s ease;
     }
 
-    .apk-btn:hover {
+    .apk-btn:hover, .premium-btn:hover {
       background: #f59e0b;
     }
 
-footer {
+    footer {
       padding: 1.6rem 8%;
       border-top: 1px solid rgba(55, 65, 81, 0.7);
       font-size: 0.8rem;
@@ -85,80 +85,82 @@ footer {
       text-align: center;
       margin-top: 3rem;
     }
-
-    .premium-btn {
-        background: linear-gradient(90deg, #fbbf24, #f59e0b);
-        color: #020617;
-        padding: 14px 26px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 20px;
-        font-size: 1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-    .premium-btn:hover {
-        transform: scale(1.05);
-        background: linear-gradient(90deg, #f59e0b, #d97706);
-        }
-    </style> 
+  </style>
 </head>
 
 <body>
 
-<header> <div class="logo">NOTRE RADIO THÉMATIQUE</div> 
-    <nav> <a href="#live">Radio en direct</a> 
-        <a href="#themes">Thématiques</a> 
-        <a href="#premium">Premium</a> 
-        <a href="#contact">Contact</a> 
-        <a href="#download" class="apk-btn">📱 Android</a> 
-    </nav> 
-</header>
+  <header>
+    <div class="logo">NOTRE RADIO THÉMATIQUE</div>
+    <nav>
+      <a href="#live">Radio en direct</a>
+      <a href="#themes">Thématiques</a>
+      <a href="#premium">Premium</a>
+      <a href="#contact">Contact</a>
+      <a href="#download" class="apk-btn">📱 Android</a>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-<!-- SECTION LECTEUR RADIO --> 
- <section id="live" style="padding:40px 20px; text-align:center;"> 
-    <h2>🎧 Radio en direct</h2> 
-    <p style="color:var(--muted);">Le lecteur sera bientôt disponible.</p>
+    <!-- SECTION RADIO EN DIRECT -->
+    <section id="live" style="padding:40px 20px; text-align:center;">
+      <h2>🎧 Radio en direct • Accès immédiat</h2>
+      <p>Une radio par thématiques, du gratuit et un premium simple.</p>
+      <p>Nous proposons une radio en direct accessible gratuitement, avec des thématiques musicales variées. Pour aller plus loin, notre offre premium à 5 €/mois débloque davantage de contenus.</p>
+      <p><strong>Thématique actuelle :</strong> sélection générale. Pour plus de thématiques disponibles et de contenus, vous pouvez opter pour notre offre premium.</p>
 
-    <!-- Quand tu auras ton lecteur, tu remplaceras TON-LIEN-LECTEUR --> 
-     <iframe src="" style="width:100%; height:200px; border:none;"></iframe> 
+      <!-- Lecteur radio (à remplacer quand tu auras ton lien) -->
+      <iframe src="" style="width:100%; height:200px; border:none;"></iframe>
     </section>
 
-    <!-- SECTION INSTALLATION -->
-     <section id="download" style="padding:40px 20px; text-align:center;"> 
-        <h2>📥 Télécharger l'application</h2> 
-        <p>Installez Notre Radio Thématique sur votre appareil Android :</p>
+    <!-- SECTION THÉMATIQUES -->
+    <section id="themes" style="padding:40px 20px;">
+      <h2>🎶 Thématiques disponibles</h2>
+      <p>Certaines thématiques sont accessibles gratuitement. D'autres sont réservées aux abonnés premium.</p>
 
-        <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 
-            📱 Installer l'application Android (.apk) </a>
+      <h3>Gratuit</h3>
+      <ul>
+        <li><strong>Mix général</strong> — Des playlists claires, qui mélangent plusieurs courants sur une place commune.</li>
+        <li><strong>Thématique découverte</strong> — Une sélection d'artistes pour initier progressivement notre approche thématique.</li>
+      </ul>
 
-        <div style="margin-top:30px;"> 
-            <h3>📱 Installer sur iPhone</h3> 
-            <p style="max-width:500px; margin:10px auto;"> 
-                Sur iPhone, ouvrez Safari → Partager → Ajouter à l’écran d’accueil. 
-            </p> 
-        </div> 
+      <h3>Premium</h3>
+      <ul>
+        <li><strong>Thématiques avancées</strong> — Des playlists ciblées (par époque, style, ambiance...), accessibles par abonnement premium.</li>
+        <li><strong>Contenus bonus</strong> — Accès à davantage de blocs thématiques, d'archives exclusives, et autres contenus réservés aux abonnés.</li>
+      </ul>
     </section>
 
     <!-- SECTION PREMIUM -->
-     <section id="premium" style="padding:40px 20px; text-align:center;"> 
-        <h2>⭐ Accès Premium</h2>
-        <p style="max-width:600px; margin:10px auto; color:var(--muted);">
-            Passez à la version Premium et profitez d’une expérience sans publicité, 
-            d’un son haute qualité et d’un accès exclusif à nos thématiques musicales. 
+    <section id="premium" style="padding:40px 20px; text-align:center;">
+      <h2>⭐ Offre Premium</h2>
+      <p>Notre abonnement premium vous permet de soutenir notre projet tout en débloquant davantage de thématiques et de contenus.</p>
+      <a href="https://ton-lien-de-paiement.com" class="premium-btn">⭐ Devenir membre Premium</a>
+    </section>
+
+    <!-- SECTION INSTALLATION -->
+    <section id="download" style="padding:40px 20px; text-align:center;">
+      <h2>📥 Télécharger l'application</h2>
+      <p>Installez Notre Radio Thématique sur votre appareil Android :</p>
+
+      <a href="World%20Radio-unsigned.apk" class="apk-btn" download>
+        📱 Installer l'application Android (.apk)
+      </a>
+
+      <div style="margin-top:30px;">
+        <h3>📱 Installer sur iPhone</h3>
+        <p style="max-width:500px; margin:10px auto;">
+          Sur iPhone, ouvrez Safari → Partager → Ajouter à l’écran d’accueil.
         </p>
+      </div>
+    </section>
 
-        <a href="https://ton-lien-de-paiement.com" class="premium-btn">
-            ⭐ Devenir membre Premium
-            </a>
-            </section>
+  </main>
 
-    </main> 
-    <footer> © 2025 Notre Radio Thématique — Tous droits réservés. </footer> 
-</body> 
+  <footer>
+    © 2025 Notre Radio Thématique — Tous droits réservés.
+  </footer>
+
+</body>
 </html>
