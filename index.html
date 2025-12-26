@@ -1,45 +1,145 @@
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <title>Notre Radio Thématique</title> <link rel="manifest" href="manifest.json"> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="Radio en ligne avec thématiques musicales, accès gratuit et offre premium."> <style> :root { --bg: #020617; --accent: #fbbf24; --text: #f9fafb; --muted: #9ca3af; --border: rgba(148, 163, 184, 0.3); } * { box-sizing: border-box; } body { margin: 0; font-family: system-ui, sans-serif; background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%); color: var(--text); } header { padding: 1.3rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid var(--border); } .logo { font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.9rem; color: var(--muted); } header nav a { margin-left: 1.4rem; text-decoration: none; font-size: 0.9rem; color: var(--muted); } header nav a:hover { color: var(--accent); } main { padding: 2rem 8%; max-width: 1100px; margin: 0 auto; } /* Bouton Android */ .apk-btn { background: var(--accent); color: var(--bg); padding: 12px 20px; border-radius: 6px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.2s ease; } .apk-btn:hover { background: #f59e0b; } footer { padding: 1.6rem 8%; border-top: 1px solid rgba(55, 65, 81, 0.7); font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 3rem; } </style> </head> <body> <header> <div class="logo">NOTRE RADIO THÉMATIQUE</div> <nav> <a href="#live">Radio en direct</a> <a href="#themes">Thématiques</a> <a href="#premium">Premium</a> <a href="#contact">Contact</a> <a href="#download" class="apk-btn">📱 Android</a> </nav> </header> <main> <!-- SECTION INSTALLATION --> <section id="download" style="padding:40px 20px; text-align:center;"> <h2>📥 Télécharger l'application</h2> <p>Installez Notre Radio Thématique sur votre appareil pour une meilleure expérience.</p> <!-- Bouton Android --> <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 📱 Installer l'application Android (.apk) </a> <!-- Instructions iPhone --> <div style="margin-top:30px;"> <h3>📱 Installer sur iPhone</h3> <p style="max-width:500px; margin:10px auto;"> Sur iPhone, l’installation se fait via Safari : <br><br> 1. Ouvrez Safari<br> 2. Allez sur notre site<br> 3. Appuyez sur <strong>Partager</strong><br> 4. Choisissez <strong>Ajouter à l’écran d’accueil</strong> </p> </div> </section> </main> <footer> © 2025 Notre Radio Thématique — Tous droits réservés. </footer> </body> </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+    <title>Notre Radio Thématique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
 
+    <style>
+        :root {
+            --bg: #020617;
+            --accent: #fbbf24;
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --border: rgba(148, 163, 184, 0.3);
+         }
 
+     * { box-sizing: border-box; }
 
+     body {
+        margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      color: var(--text);
+    }
 
+    header {
+      padding: 1.3rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid var(--border);
+    }
 
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
+    header nav a {
+      margin-left: 1.4rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
+    header nav a:hover { color: var(--accent); }
 
+    main {
+      padding: 2rem 8%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
+    .apk-btn {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.2s ease;
+    }
 
+    .apk-btn:hover {
+      background: #f59e0b;
+    }
 
+footer {
+      padding: 1.6rem 8%;
+      border-top: 1px solid rgba(55, 65, 81, 0.7);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 3rem;
+    }
+    </style> 
+</head>
 
+<body>
 
+<header> <div class="logo">NOTRE RADIO THÉMATIQUE</div> 
+    <nav> <a href="#live">Radio en direct</a> 
+        <a href="#themes">Thématiques</a> 
+        <a href="#premium">Premium</a> 
+        <a href="#contact">Contact</a> 
+        <a href="#download" class="apk-btn">📱 Android</a> 
+    </nav> 
+</header>
 
+<main>
 
+<!-- SECTION LECTEUR RADIO --> 
+ <section id="live" style="padding:40px 20px; text-align:center;"> 
+    <h2>🎧 Radio en direct</h2> 
+    <p style="color:var(--muted);">Le lecteur sera bientôt disponible.</p>
 
+    <!-- Quand tu auras ton lecteur, tu remplaceras TON-LIEN-LECTEUR --> 
+     <iframe src="" style="width:100%; height:200px; border:none;"></iframe> 
+    </section>
 
+    <!-- SECTION INSTALLATION -->
+     <section id="download" style="padding:40px 20px; text-align:center;"> 
+        <h2>📥 Télécharger l'application</h2> 
+        <p>Installez Notre Radio Thématique sur votre appareil Android :</p>
 
+        <a href="World%20Radio-unsigned.apk" class="apk-btn" download> 
+            📱 Installer l'application Android (.apk) </a>
 
+        <div style="margin-top:30px;"> 
+            <h3>📱 Installer sur iPhone</h3> 
+            <p style="max-width:500px; margin:10px auto;"> 
+                Sur iPhone, ouvrez Safari → Partager → Ajouter à l’écran d’accueil. 
+            </p> 
+        </div> 
+    </section>
 
+    <!-- SECTION PREMIUM -->
+     <section id="premium" style="padding:40px 20px; text-align:center;"> 
+        <h2>⭐ Accès Premium</h2>
+        <p style="max-width:600px; margin:10px auto; color:var(--muted);">
+            Passez à la version Premium et profitez d’une expérience sans publicité, 
+            d’un son haute qualité et d’un accès exclusif à nos thématiques musicales. 
+        </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <a href="https://ton-lien-de-paiement.com" class="premium-btn">
+            ⭐ Devenir membre Premium
+            </a>
+            </section>
+            
+    </main> 
+    <footer> © 2025 Notre Radio Thématique — Tous droits réservés. </footer> 
+</body> 
+</html>
